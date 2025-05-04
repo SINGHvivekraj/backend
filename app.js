@@ -21,12 +21,22 @@ app.use((req,res,next)=>{
 const morg=require('morgan');
 app.use(morg('dev'));
 
+app.use(exp.urlencoded({ extended: true }));
+app.use(exp.json());
+
+
 //routing
 app.get("/",((req,res)=>{res.render("index")}));
 app.get("/home",(req,res)=>res.send("Home Page"));
 app.get("/about",(req,res)=>res.send("About Page"));
 app.get("/get-form-data",(req,res)=>{
     console.log(req.query);
+    res.send('data received');
+})
+
+//using post method 
+app.post("/get-form-data",(req,res)=>{
+    console.log(req.body);
     res.send('data received');
 })
 
