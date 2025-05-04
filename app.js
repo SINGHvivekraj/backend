@@ -17,6 +17,10 @@ app.use((req,res,next)=>{
     return next();
 })
 
+//third party middle-ware
+const morg=require('morgan');
+app.use(morg('dev'));
+
 //routing
 app.get("/",((req,res)=>{res.render("index")}));
 app.get("/home",(req,res)=>res.send("Home Page"));
