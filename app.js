@@ -25,6 +25,10 @@ app.use(morg('dev'));
 app.get("/",((req,res)=>{res.render("index")}));
 app.get("/home",(req,res)=>res.send("Home Page"));
 app.get("/about",(req,res)=>res.send("About Page"));
+app.get("/get-form-data",(req,res)=>{
+    console.log(req.query);
+    res.send('data received');
+})
 
 //starting a server on port 3000
 app.listen(3000);
