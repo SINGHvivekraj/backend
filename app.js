@@ -24,6 +24,9 @@ app.use(morg('dev'));
 app.use(exp.urlencoded({ extended: true }));
 app.use(exp.json());
 
+//to link static files
+app.use(exp.static('public'));
+
 
 //routing
 app.get("/",((req,res)=>{res.render("index")}));
